@@ -1,0 +1,8 @@
+<h3>Fitness Dashboard</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let benchmark of benchmarks" class="col-1-4" routerLink="/detail/{{benchmark.id}}">
+    <div class="module benchmark">
+      <h4>{{benchmark.name}}</h4>
+    </div>
+  </a>
+</div>

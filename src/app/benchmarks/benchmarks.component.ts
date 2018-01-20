@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Benchmark } from '../benchmark'
 import { BenchmarkService } from '../benchmark.service'
 
@@ -10,16 +11,11 @@ import { BenchmarkService } from '../benchmark.service'
 export class BenchmarksComponent implements OnInit {
 
   benchmarks: Benchmark[];
-  selectedBenchmark: Benchmark;
 
   constructor(private benchmarkService: BenchmarkService) { }
 
   ngOnInit() {
     this.getBenchmarks();
-  }
-
-  onSelect(benchmark: Benchmark): void {
-    this.selectedBenchmark = benchmark;
   }
 
   getBenchmarks(): void {

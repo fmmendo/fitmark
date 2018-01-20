@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // ngModel lives here
 
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { BenchmarksComponent } from './benchmarks/benchmarks.component';
 import { BenchmarkDetailComponent } from './benchmark-detail/benchmark-detail.component';
 import { BenchmarkService } from './benchmark.service';
@@ -13,7 +14,8 @@ import { AppRoutingModule } from './/app-routing.module';
   declarations: [
     AppComponent,
     BenchmarksComponent,
-    BenchmarkDetailComponent
+    BenchmarkDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

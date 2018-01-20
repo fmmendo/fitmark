@@ -1,8 +1,8 @@
 <h2>Benchmarks</h2>
 <ul class="benchmarks">
-  <li *ngFor="let benchmark of benchmarks" [class.selected]="benchmark === selectedBenchmark" (click)="onSelect(benchmark)">
-    <span class="badge">{{benchmark.id}}</span> {{benchmark.name}}
+  <li *ngFor="let benchmark of benchmarks">
+    <a routerLink="/detail/{{benchmark.id}}">
+      <span class="badge">{{benchmark.id}}</span> {{benchmark.name}}
+    </a>
   </li>
 </ul>
- 
-<app-benchmark-detail [benchmark]="selectedBenchmark"></app-benchmark-detail>
