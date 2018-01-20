@@ -1,0 +1,12 @@
+<div *ngIf="benchmark">
+  <h2>{{ benchmark.name | uppercase }} Details</h2>
+  <div>
+    <span>id: </span>{{benchmark.id}}</div>
+  <div>
+    <span>name: </span>{{benchmark.name}}</div>
+  <div>
+    <label>level:
+      <input [(ngModel)]="benchmark.level" placeholder="level">
+    </label>
+  </div>
+</div>

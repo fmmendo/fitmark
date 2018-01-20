@@ -1,8 +1,8 @@
-<h2>{{ benchmark.name | uppercase }} Details</h2>
-<div><span>id: </span>{{benchmark.id}}</div>
-<div><span>name: </span>{{benchmark.name}}</div>
-<div>
-  <label>level:
-    <input [(ngModel)]="benchmark.level" placeholder="level">
-  </label>
-</div>
+<h2>Benchmarks</h2>
+<ul class="benchmarks">
+  <li *ngFor="let benchmark of benchmarks" [class.selected]="benchmark === selectedBenchmark" (click)="onSelect(benchmark)">
+    <span class="badge">{{benchmark.id}}</span> {{benchmark.name}}
+  </li>
+</ul>
+ 
+<app-benchmark-detail [benchmark]="selectedBenchmark"></app-benchmark-detail>

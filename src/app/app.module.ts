@@ -4,18 +4,23 @@ import { FormsModule } from '@angular/forms'; // ngModel lives here
 
 import { AppComponent } from './app.component';
 import { BenchmarksComponent } from './benchmarks/benchmarks.component';
+import { BenchmarkDetailComponent } from './benchmark-detail/benchmark-detail.component';
+import { BenchmarkService } from './benchmark.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BenchmarksComponent
+    BenchmarksComponent,
+    BenchmarkDetailComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [BenchmarkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

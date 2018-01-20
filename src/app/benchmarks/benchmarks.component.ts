@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Benchmark } from '../benchmark'
+import { BenchmarkService } from '../benchmark.service'
 
 @Component({
   selector: 'app-benchmarks',
@@ -8,15 +9,20 @@ import { Benchmark } from '../benchmark'
 })
 export class BenchmarksComponent implements OnInit {
 
-  benchmark: Benchmark = {
-    id: 1,
-    name: 'Pull-Ups',
-    level: 'level 4'
-  }
+  benchmarks: Benchmark[];
+  selectedBenchmark: Benchmark;
 
-  constructor() { }
+  constructor(private benchmarkService: BenchmarkService) { }
 
   ngOnInit() {
+    this.getBenchmarks();
   }
 
+  onSelect(benchmark: Benchmark): void {
+    this.selectedBenchmark = benchmark;
+  }
+
+  getBenchmarks(): void {
+    this.benchmarkService.getBenchmarks().subscribe(b => this.benchmarks = b);
+  }
 }
