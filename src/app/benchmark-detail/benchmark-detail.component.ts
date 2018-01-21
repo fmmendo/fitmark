@@ -25,6 +25,10 @@ export class BenchmarkDetailComponent implements OnInit {
     this.benchmarkService.getBenchmark(id).subscribe(b => this.benchmark = b);
   }
 
+  save(): void {
+      this.benchmarkService.updateBenchmark(this.benchmark).subscribe(() => this.goBack());
+  }
+
   goBack(): void{
     this.location.back();
   }

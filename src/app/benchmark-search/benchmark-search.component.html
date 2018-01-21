@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>Benchmark Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let benchmark of benchmarks$ | async" >
+      <a routerLink="/detail/{{benchmark.id}}">
+        {{benchmark.name}}
+      </a>
+    </li>
+  </ul>
+</div>

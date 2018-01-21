@@ -1,13 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // ngModel lives here
+import { HttpClientModule }    from '@angular/common/http';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
+import { AppRoutingModule } from './/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BenchmarksComponent } from './benchmarks/benchmarks.component';
 import { BenchmarkDetailComponent } from './benchmark-detail/benchmark-detail.component';
 import { BenchmarkService } from './benchmark.service';
-import { AppRoutingModule } from './/app-routing.module';
+import { BenchmarkSearchComponent } from './benchmark-search/benchmark-search.component';
 
 
 @NgModule({
@@ -15,12 +21,15 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     BenchmarksComponent,
     BenchmarkDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    BenchmarkSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
   ],
   providers: [BenchmarkService],
   bootstrap: [AppComponent]
