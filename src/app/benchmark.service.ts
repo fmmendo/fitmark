@@ -4,7 +4,8 @@ import { of } from 'rxjs/observable/of'
 import { catchError, map, tap } from 'rxjs/operators';
 import { Benchmark, BENCHMARKS } from './benchmark'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Http } from '@angular/http';
+import { stringify } from '@angular/core/src/util';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -13,22 +14,47 @@ const httpOptions = {
 export class BenchmarkService {
 
   private benchmarksUrl = 'api/benchmarks'; // url to web api
+  private benchmarks: Benchmark[];
+  private version: number;
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient, private h: Http) {
+    this.getJSONAsync("assets/spec.json").then(data => this.SetData(data));
+  }
+
+  private getJSONAsync(filepath: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.h.get(filepath).subscribe(res => {
+        if (!res.ok) {
+          reject("failed");
+        }
+
+        var jsonRes = res.json();
+
+        resolve(jsonRes);
+      })
+    });
+  }
+
+  public SetData(data: any) {
+    this.benchmarks = data.benchmarks;
+    this.version = data.version;
+  }
 
   getBenchmarks(): Observable<Benchmark[]> {
-    return this.http.get<Benchmark[]>(this.benchmarksUrl)
+
+
+    return this.httpClient.get<Benchmark[]>(this.benchmarksUrl)
       .pipe(catchError(this.handleError('getBenchmarks', [])));
   }
 
   getBenchmark(id: number): Observable<Benchmark> {
     const url = `${this.benchmarksUrl}/${id}`;
-    return this.http.get<Benchmark>(url)
+    return this.httpClient.get<Benchmark>(url)
       .pipe(catchError(this.handleError<Benchmark>(`getBenchmark id=${id}`)));
   }
 
   updateBenchmark(benchmark: Benchmark): Observable<any> {
-    return this.http.put(this.benchmarksUrl, benchmark, httpOptions)
+    return this.httpClient.put(this.benchmarksUrl, benchmark, httpOptions)
       .pipe(catchError(this.handleError<any>('updateBenchmark')));
   }
 
@@ -38,7 +64,7 @@ export class BenchmarkService {
       // if not search term, return empty benchmark array.
       return of([]);
     }
-    return this.http.get<Benchmark[]>(`api/benchmarks/?name=${term}`)
+    return this.httpClient.get<Benchmark[]>(`api/benchmarks/?name=${term}`)
       .pipe(catchError(this.handleError<Benchmark[]>('searchBenchmarks', [])));
   }
 
@@ -55,7 +81,7 @@ export class BenchmarkService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      //this.log(`${operation} failed: ${error.message}`);
+      console.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);

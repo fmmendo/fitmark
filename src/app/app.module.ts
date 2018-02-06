@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // ngModel lives here
 import { HttpClientModule }    from '@angular/common/http';
+import { HttpModule }    from '@angular/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -29,6 +30,7 @@ import { BenchmarkSearchComponent } from './benchmark-search/benchmark-search.co
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
   ],
   providers: [BenchmarkService],
