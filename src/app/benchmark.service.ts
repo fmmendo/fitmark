@@ -18,8 +18,44 @@ export class BenchmarkService {
   private version: number;
 
   constructor(private httpClient: HttpClient, private h: Http) {
-    this.getJSONAsync("assets/spec.json").then(data => this.SetData(data));
+    this.getJSONAsync("assets/data/spec.json").then(data => this.SetData(data));
   }
+
+  getBenchmarks(): Observable<Benchmark[]> {
+
+    
+    console.info(JSON.stringify(this.benchmarks));
+    return of(this.benchmarks)
+
+    //return this.httpClient.get<Benchmark[]>(this.benchmarksUrl)
+    //  .pipe(catchError(this.handleError('getBenchmarks', [])));
+  }
+
+  getBenchmark(id: number): Observable<Benchmark> {
+    return of(this.benchmarks.find(b => b.id === id))
+    // const url = `${this.benchmarksUrl}/${id}`;
+    // return this.httpClient.get<Benchmark>(url)
+    //   .pipe(catchError(this.handleError<Benchmark>(`getBenchmark id=${id}`)));
+  }
+
+  updateBenchmark(benchmark: Benchmark): Observable<any> {
+    // return this.httpClient.put(this.benchmarksUrl, benchmark, httpOptions)
+    //   .pipe(catchError(this.handleError<any>('updateBenchmark')));
+    return null
+  }
+
+  /* GET benchmarks whose name contains search term */
+  searchBenchmarks(term: string): Observable<Benchmark[]> {
+    if (!term.trim()) {
+      // if not search term, return empty benchmark array.
+      return of([]);
+    }
+
+    return of(this.benchmarks.filter(h => h.name.includes(term)))
+
+    // return this.httpClient.get<Benchmark[]>(`api/benchmarks/?name=${term}`)
+    //   .pipe(catchError(this.handleError<Benchmark[]>('searchBenchmarks', [])));
+  }  
 
   private getJSONAsync(filepath: string): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -38,34 +74,7 @@ export class BenchmarkService {
   public SetData(data: any) {
     this.benchmarks = data.benchmarks;
     this.version = data.version;
-  }
 
-  getBenchmarks(): Observable<Benchmark[]> {
-
-
-    return this.httpClient.get<Benchmark[]>(this.benchmarksUrl)
-      .pipe(catchError(this.handleError('getBenchmarks', [])));
-  }
-
-  getBenchmark(id: number): Observable<Benchmark> {
-    const url = `${this.benchmarksUrl}/${id}`;
-    return this.httpClient.get<Benchmark>(url)
-      .pipe(catchError(this.handleError<Benchmark>(`getBenchmark id=${id}`)));
-  }
-
-  updateBenchmark(benchmark: Benchmark): Observable<any> {
-    return this.httpClient.put(this.benchmarksUrl, benchmark, httpOptions)
-      .pipe(catchError(this.handleError<any>('updateBenchmark')));
-  }
-
-  /* GET benchmarks whose name contains search term */
-  searchBenchmarks(term: string): Observable<Benchmark[]> {
-    if (!term.trim()) {
-      // if not search term, return empty benchmark array.
-      return of([]);
-    }
-    return this.httpClient.get<Benchmark[]>(`api/benchmarks/?name=${term}`)
-      .pipe(catchError(this.handleError<Benchmark[]>('searchBenchmarks', [])));
   }
 
   /**
