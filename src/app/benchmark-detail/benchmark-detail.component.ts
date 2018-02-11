@@ -26,7 +26,8 @@ export class BenchmarkDetailComponent implements OnInit {
   }
 
   save(): void {
-      this.benchmarkService.updateBenchmark(this.benchmark).subscribe(() => this.goBack());
+      //this.benchmarkService.updateBenchmark(this.benchmark);
+      this.goBack();
   }
 
   goBack(): void{
