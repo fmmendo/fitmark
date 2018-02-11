@@ -5,10 +5,16 @@
   <div>
     <span>name: </span>{{benchmark.name}}</div>
   <div>
+    <span>standards: </span>{{benchmark.standards}}</div>
+  <div>
     <label>level:
       <input [(ngModel)]="benchmark.level" placeholder="level">
     </label>
+    <div>
+      <span></span>{{benchmark.scheme}}</div>
   </div>
+  <div>
+    <span>modifiers: </span>{{benchmark.modifier}}</div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
 </div>

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Benchmark } from '../benchmark';
+import { Benchmark } from '../model/benchmark';
 import { BenchmarkService } from '../benchmark.service';
 
 @Component({

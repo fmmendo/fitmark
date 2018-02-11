@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable'
 import { of } from 'rxjs/observable/of'
 import { catchError, map, tap } from 'rxjs/operators';
-import { Benchmark, BENCHMARKS } from './benchmark'
+import { Benchmark } from './model/benchmark'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Http } from '@angular/http';
-import { stringify } from '@angular/core/src/util';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -74,7 +74,6 @@ export class BenchmarkService {
   public SetData(data: any) {
     this.benchmarks = data.benchmarks;
     this.version = data.version;
-
   }
 
   /**

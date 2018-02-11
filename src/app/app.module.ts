@@ -6,6 +6,7 @@ import { HttpModule }    from '@angular/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -31,7 +32,8 @@ import { BenchmarkSearchComponent } from './benchmark-search/benchmark-search.co
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+    AsyncLocalStorageModule
   ],
   providers: [BenchmarkService],
   bootstrap: [AppComponent]

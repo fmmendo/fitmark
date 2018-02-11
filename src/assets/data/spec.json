@@ -3,53 +3,82 @@
     "benchmarks": [
         {
             "id": 11,
-            "name": "Pull-ups",
-            "standards": "some standards",
+            "name": "Pull-ups, Max Set",
+            "standards": "Any version. Chin must travel over vertical plane of bar. Hands stay on bar/feet off floor. Double overhand grip only. No bands.",
             "level": [
-                1,
-                2,
-                3
+                3,
+                5,
+                30,
+                40
             ],
-            "modifier": [
-                "a",
-                "b",
-                "c"
-            ],
-            "scheme": "dunno",
+            "modifier": [],
+            "scheme": "reps",
             "category": 0
         },
         {
             "id": 12,
-            "name": "Push-ups",
-            "standards": "some standards",
+            "name": "Push-ups, Max Set",
+            "standards": "Must remain in plank. Chest to floor.",
             "level": [
-                1,
-                2,
-                3
+                15,
+                20,
+                65,
+                100
             ],
-            "modifier": [
-                "a",
-                "b",
-                "c"
-            ],
-            "scheme": "dunno",
+            "modifier": [],
+            "scheme": "reps",
             "category": 0
         },
         {
             "id": 13,
-            "name": "Sit-ups",
-            "standards": "some standards",
+            "name": "Dips",
+            "standards": "Consecutive. It's over once you touch the ground.",
             "level": [
-                1,
-                2,
-                3
+                0,
+                10,
+                15,
+                20
             ],
             "modifier": [
-                "a",
-                "b",
-                "c"
+                "",
+                "",
+                "rings",
+                "rings"
             ],
-            "scheme": "dunno",
+            "scheme": "reps",
+            "category": 0
+        },
+        {
+            "id": 15,
+            "name": "Squats, in 2 minutes",
+            "standards": "Hip crease below knee.",
+            "level": [
+                55,
+                80,
+                30,
+                50
+            ],
+            "modifier": [
+                "",
+                "",
+                "pistols",
+                "pistols"
+            ],
+            "scheme": "reps",
+            "category": 0
+        },
+        {
+            "id": 16,
+            "name": "Burpees, in 1 minute",
+            "standards": "Chest to floor.",
+            "level": [
+                10,
+                15,
+                20,
+                28
+            ],
+            "modifier": [],
+            "scheme": "reps",
             "category": 0
         }
     ]

@@ -8,7 +8,7 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { Benchmark } from '../benchmark';
+import { Benchmark } from '../model/benchmark';
 import { BenchmarkService } from '../benchmark.service';
 
 @Component({
