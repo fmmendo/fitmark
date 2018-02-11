@@ -21,6 +21,7 @@ export class BenchmarkService {
 
   constructor(private http: Http, private storage: AsyncLocalStorage) {
     this.getJSONAsync("assets/data/spec.json").then(data => this.SetData(data));
+    this.getUserEntries();
   }
 
   getBenchmarks(): Observable<Benchmark[]> {
@@ -32,7 +33,12 @@ export class BenchmarkService {
     return of(this.benchmarks.find(b => b.id === id))
   }
 
-  updateBenchmark(benchmark: Benchmark, score: number, modifier: string) {
+  getEntries(): Observable<BenchmarkEntry[]>
+  {
+    return of(this.entries);
+  }
+
+  updateBenchmark(benchmark: Benchmark, score: number, modifier: number) {
     if (this.entries === null) {
       this.entries = [];
     }
@@ -66,20 +72,33 @@ export class BenchmarkService {
       // done
       if (d != null) {
         this.entries = d;
+        console.log("loaded saved entries");
+
+        this.entries.forEach(e => {
+          let bench = this.benchmarks.find(b => b.id === e.benchmarkId);
+          let index = this.benchmarks.indexOf(bench);
+
+          this.benchmarks[index].score = e.score;
+          this.benchmarks[index].selectedMod = e.modifier;
+        })
       }
       else {
         this.entries = [];
+        console.log("nothing to load");
       }
     }, () => {
       // error
+      console.log("loading entries is broken");
     })
   }
 
   private saveUserEntries() {
     this.storage.setItem(USER_ENTRIES, this.entries).subscribe(() => {
       // done
+      console.log("saved entries");
     }, () => {
       // error
+      console.log("saving entries is broken");
     })
   }
 

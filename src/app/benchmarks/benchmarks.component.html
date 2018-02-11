@@ -2,7 +2,7 @@
 <ul class="benchmarks">
   <li *ngFor="let benchmark of benchmarks">
     <a routerLink="/detail/{{benchmark.id}}">
-      <span class="badge">{{benchmark.id}}</span> {{benchmark.name}}
+      <span class="badge">{{benchmark.id}}</span> {{benchmark.name}} score: {{benchmark.score}}
     </a>
   </li>
 </ul>

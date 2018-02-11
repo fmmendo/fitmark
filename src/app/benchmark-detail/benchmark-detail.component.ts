@@ -11,7 +11,7 @@ import { BenchmarkService } from '../benchmark.service';
   styleUrls: ['./benchmark-detail.component.css']
 })
 export class BenchmarkDetailComponent implements OnInit {
-  
+
   @Input() benchmark: Benchmark;
 
   constructor(private route: ActivatedRoute, private benchmarkService: BenchmarkService, private location: Location) { }
@@ -26,11 +26,11 @@ export class BenchmarkDetailComponent implements OnInit {
   }
 
   save(): void {
-      //this.benchmarkService.updateBenchmark(this.benchmark);
-      this.goBack();
+    //this.benchmarkService.updateBenchmark(this.benchmark);
+    this.goBack();
   }
 
-  goBack(): void{
+  goBack(): void {
     this.location.back();
   }
 }
