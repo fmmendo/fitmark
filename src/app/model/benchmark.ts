@@ -1,4 +1,5 @@
 import { Category } from "./Category";
+import { Gender } from "./userData";
 
 export class Benchmark {
     id: number;
@@ -8,6 +9,7 @@ export class Benchmark {
     modifier: string[];
     scheme: string;
     category: Category;
+    gender: Gender
 
     score: number;
     selectedMod: number;

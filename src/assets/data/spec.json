@@ -13,7 +13,8 @@
             ],
             "modifier": [],
             "scheme": "reps",
-            "category": 0
+            "category": 0,
+            "gender": 0
         },
         {
             "id": 12,
@@ -27,7 +28,8 @@
             ],
             "modifier": [],
             "scheme": "reps",
-            "category": 0
+            "category": 0,
+            "gender": 1
         },
         {
             "id": 13,
@@ -46,7 +48,8 @@
                 "rings"
             ],
             "scheme": "reps",
-            "category": 0
+            "category": 0,
+            "gender": 2
         },
         {
             "id": 15,
@@ -65,7 +68,8 @@
                 "pistols"
             ],
             "scheme": "reps",
-            "category": 0
+            "category": 0,
+            "gender": 0
         },
         {
             "id": 16,
@@ -79,7 +83,8 @@
             ],
             "modifier": [],
             "scheme": "reps",
-            "category": 0
+            "category": 0,
+            "gender": 0
         }
     ]
 }
