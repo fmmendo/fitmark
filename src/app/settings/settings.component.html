@@ -1,0 +1,29 @@
+<div *ngIf="userData">
+  <div>
+    <label>username:
+      <input [(ngModel)]="userData.username" placeholder="">
+    </label>
+  </div>
+  <div>
+    <label>age:
+      <input [(ngModel)]="userData.age" placeholder="">
+    </label>
+  </div>
+  <div>
+    <label>weight (kg):
+      <input [(ngModel)]="userData.weight" placeholder="">
+    </label>
+  </div>
+
+  <ul>
+    <li *ngFor="let choice of GenderValues">
+      <input type="radio"
+             [(ngModel)]="userData.gender"
+             [checked]="userData.gender==choice"
+             [value]="choice" /> {{Gender[choice]}}
+    </li>
+  </ul>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

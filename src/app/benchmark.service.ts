@@ -8,8 +8,10 @@ import { AsyncLocalStorage } from 'angular-async-local-storage';
 
 import { Benchmark } from './model/benchmark'
 import { BenchmarkEntry } from './model/benchmarkEntry';
+import { UserData } from './model/userData';
 
 const USER_ENTRIES = 'fitmark-user-entries';
+const USER_DATA = 'fitmark-user-data';
 
 @Injectable()
 export class BenchmarkService {
@@ -17,6 +19,7 @@ export class BenchmarkService {
   //private benchmarksUrl = 'api/benchmarks'; // url to web api
   private benchmarks: Benchmark[];
   private entries: BenchmarkEntry[];
+  //private userData: UserData;
   private version: number;
 
   constructor(private http: Http, private storage: AsyncLocalStorage) {
@@ -67,6 +70,40 @@ export class BenchmarkService {
     return of(this.benchmarks.filter(h => h.name.includes(term)))
   }
 
+  public saveUserData(data: UserData) {
+    //this.userData = data;
+    this.storage.setItem(USER_DATA, data).subscribe(() => {
+      // done
+      console.log("saved entries");
+    }, () => {
+      // error
+      console.log("saving entries is broken");
+    })
+  }
+
+  public getUserData() : Observable<UserData> {
+    return this.storage.getItem(USER_DATA);
+    // let data;
+
+    // this.storage.getItem(USER_DATA).subscribe((d) => {      
+    //   // done
+    //   if (d != null) {
+    //     data = d;
+    //     console.log("loaded user data");
+        
+    //   }
+    //   else {
+    //     data = new UserData();
+    //     console.log("no user data to load");
+    //   }
+    //   return of(data);
+    // }, () => {
+    //   // error
+    //   console.log("loading user data is broken");     
+    // })
+    // return of(data);
+  }
+
   private getUserEntries() {
     this.storage.getItem(USER_ENTRIES).subscribe((d) => {
       // done
@@ -95,10 +132,10 @@ export class BenchmarkService {
   private saveUserEntries() {
     this.storage.setItem(USER_ENTRIES, this.entries).subscribe(() => {
       // done
-      console.log("saved entries");
+      console.log("saved user data");
     }, () => {
       // error
-      console.log("saving entries is broken");
+      console.log("saving user data is broken");
     })
   }
 

@@ -16,6 +16,7 @@ import { BenchmarksComponent } from './benchmarks/benchmarks.component';
 import { BenchmarkDetailComponent } from './benchmark-detail/benchmark-detail.component';
 import { BenchmarkService } from './benchmark.service';
 import { BenchmarkSearchComponent } from './benchmark-search/benchmark-search.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { BenchmarkSearchComponent } from './benchmark-search/benchmark-search.co
     BenchmarksComponent,
     BenchmarkDetailComponent,
     DashboardComponent,
-    BenchmarkSearchComponent
+    BenchmarkSearchComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

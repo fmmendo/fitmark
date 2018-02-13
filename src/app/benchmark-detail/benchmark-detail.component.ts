@@ -26,7 +26,7 @@ export class BenchmarkDetailComponent implements OnInit {
   }
 
   save(): void {
-    //this.benchmarkService.updateBenchmark(this.benchmark);
+    this.benchmarkService.updateBenchmark(this.benchmark, this.benchmark.score, this.benchmark.selectedMod);
     this.goBack();
   }
 

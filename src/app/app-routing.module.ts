@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { BenchmarksComponent } from './benchmarks/benchmarks.component';
 import { BenchmarkDetailComponent } from './benchmark-detail/benchmark-detail.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: BenchmarkDetailComponent },
+  { path: 'settings', component: SettingsComponent },
   { path: 'benchmarks', component: BenchmarksComponent }
 ]
 
