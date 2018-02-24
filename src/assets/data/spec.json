@@ -2,7 +2,7 @@
     "version": "0.1",
     "benchmarks": [
         {
-            "id": 11,
+            "id": 1,
             "name": "Pull-ups, Max Set",
             "standards": "Any version. Chin must travel over vertical plane of bar. Hands stay on bar/feet off floor. Double overhand grip only. No bands.",
             "level": [
@@ -17,7 +17,22 @@
             "gender": 0
         },
         {
-            "id": 12,
+            "id": 2,
+            "name": "Pull-ups, Max Set",
+            "standards": "Any version. Chin must travel over vertical plane of bar. Hands stay on bar/feet off floor. Double overhand grip only. No bands.",
+            "level": [
+                1,
+                3,
+                12,
+                28
+            ],
+            "modifier": [],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 1
+        },
+        {
+            "id": 3,
             "name": "Push-ups, Max Set",
             "standards": "Must remain in plank. Chest to floor.",
             "level": [
@@ -29,11 +44,26 @@
             "modifier": [],
             "scheme": "reps",
             "category": 0,
+            "gender": 0
+        },
+        {
+            "id": 4,
+            "name": "Push-ups, Max Set",
+            "standards": "Must remain in plank. Chest to floor. Rest no longer than 3 seconds",
+            "level": [
+                5,
+                15,
+                30,
+                55
+            ],
+            "modifier": [],
+            "scheme": "reps",
+            "category": 0,
             "gender": 1
         },
         {
-            "id": 13,
-            "name": "Dips",
+            "id": 5,
+            "name": "Dips, Max Set",
             "standards": "Consecutive. It's over once you touch the ground.",
             "level": [
                 0,
@@ -49,10 +79,47 @@
             ],
             "scheme": "reps",
             "category": 0,
+            "gender": 0
+        },
+        {
+            "id": 6,
+            "name": "Dips, Max Set",
+            "standards": "Consecutive. It's over once you touch the ground.",
+            "level": [
+                0,
+                2,
+                10,
+                15
+            ],
+            "modifier": [
+                "",
+                "",
+                "rings",
+                "rings"
+            ],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 1
+        },
+        {
+            "id": 7,
+            "name": "Sit-ups, in 2 minutes",
+            "standards": "Abmat, butterfly, no anchor.",
+            "level": [
+                45,60,75,90
+            ],
+            "modifier": [
+                "",
+                "",
+                "pistols",
+                "pistols"
+            ],
+            "scheme": "reps",
+            "category": 0,
             "gender": 2
         },
         {
-            "id": 15,
+            "id": 8,
             "name": "Squats, in 2 minutes",
             "standards": "Hip crease below knee.",
             "level": [
@@ -69,10 +136,10 @@
             ],
             "scheme": "reps",
             "category": 0,
-            "gender": 0
+            "gender": 2
         },
         {
-            "id": 16,
+            "id": 9,
             "name": "Burpees, in 1 minute",
             "standards": "Chest to floor.",
             "level": [
@@ -85,6 +152,372 @@
             "scheme": "reps",
             "category": 0,
             "gender": 0
-        }
+        },
+        {
+            "id": 10,
+            "name": "Rope Climb, consecutive",
+            "standards": "Hand must touch chain/pin.",
+            "level": [
+                2,1,1,2
+            ],
+            "modifier": ["","no feet","seated","L-sit"],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 0
+        },
+        {
+            "id": 11,
+            "name": "Rope Climb, consecutive",
+            "standards": "Hand must touch chain/pin.",
+            "level": [
+                1,3,1,1
+            ],
+            "modifier": ["","","no feet","seated"],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 1
+        },
+        {
+            "id": 12,
+            "name": "L-Sit Hold",
+            "standards": "Using parallettes.",
+            "level": [
+                30,
+                30,
+                50,
+                105
+            ],
+            "modifier": ["tucked", "one leg", "both legs", "both legs"],
+            "scheme": "seconds",
+            "category": 0,
+            "gender": 2
+        },
+        {
+            "id": 13,
+            "name": "Muscle-ups",
+            "standards": "Kipping allowed. False grip not required.",
+            "level": [
+                0,
+                1,
+                3,
+                10
+            ],
+            "modifier": [],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 0
+        },
+        {
+            "id": 14,
+            "name": "Muscle-ups",
+            "standards": "Kipping allowed. False grip not required.",
+            "level": [
+                0,
+                0,
+                1,
+                3
+            ],
+            "modifier": [],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 1
+        },
+        {
+            "id": 15,
+            "name": "Handstand Hold",
+            "standards": "Wall facing. Hips off wall, only toes touching.",
+            "level": [
+                30,
+                60,
+                15,
+                45
+            ],
+            "modifier": ["wall", "wall", "freestanding", "freestanding"],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 0
+        },
+        {
+            "id": 16,
+            "name": "Handstand Push-ups, Max Set",
+            "standards": "Chest facing wall. No kipping.",
+            "level": [
+                0,
+                3,
+                7,
+                15
+            ],
+            "modifier": ["", "", "", "freestanding"],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 0
+        },
+        {
+            "id": 17,
+            "name": "Handstand Push-ups, Max Set",
+            "standards": "Chest facing wall. No kipping.",
+            "level": [
+                0,
+                1,
+                3,
+                5
+            ],
+            "modifier": ["", "", "", "freestanding"],
+            "scheme": "reps",
+            "category": 0,
+            "gender": 1
+        },
+        {
+            "id": 18,
+            "name": "400m Run",
+            "standards": "",
+            "level": [
+                135,
+                105,
+                85,
+                70
+            ],
+            "modifier": [],
+            "scheme": "seconds",
+            "category": 1,
+            "gender": 0
+        },
+        {
+            "id": 19,
+            "name": "400m Run",
+            "standards": "",
+            "level": [
+                145,
+                115,
+                95,
+                80
+            ],
+            "modifier": [],
+            "scheme": "seconds",
+            "category": 1,
+            "gender": 1
+        },
+        {
+            "id": 20,
+            "name": "1 Mile Run",
+            "standards": "4 x 400m",
+            "level": [
+                555,
+                450,
+                370,
+                330
+            ],
+            "modifier": [],
+            "scheme": "seconds",
+            "category": 1,
+            "gender": 0
+        },
+        {
+            "id": 21,
+            "name": "1 Mile Run",
+            "standards": "4 x 400m",
+            "level": [
+                600,
+                490,
+                410,
+                360
+            ],
+            "modifier": [],
+            "scheme": "seconds",
+            "category": 1,
+            "gender": 1
+        },
+        {
+            "id": 22,
+            "name": "500m Row",
+            "standards": "Set rower to count down the meters. Take final time from machine.",
+            "level": [
+                116,
+                105,
+                94,
+                89
+            ],
+            "modifier": [],
+            "scheme": "seconds",
+            "category": 1,
+            "gender": 0
+        },
+        {
+            "id": 23,
+            "name": "500m Row",
+            "standards": "Set rower to count down the meters. Take final time from machine.",
+            "level": [
+                140,
+                120,
+                110,
+                100
+            ],
+            "modifier": [],
+            "scheme": "seconds",
+            "category": 1,
+            "gender": 1
+        },
+        {
+            "id": 24,
+            "name": "2K Row",
+            "standards": "Set rower to count down the meters. Take final time from machine.",
+            "level": [
+                495,
+                450,
+                420,
+                390
+            ],
+            "modifier": [],
+            "scheme": "seconds",
+            "category": 1,
+            "gender": 0
+        },
+        {
+            "id": 25,
+            "name": "2K Row",
+            "standards": "Set rower to count down the meters. Take final time from machine.",
+            "level": [
+                600,
+                540,
+                495,
+                450
+            ],
+            "modifier": [],
+            "scheme": "seconds",
+            "category": 1,
+            "gender": 1
+        },
+        {
+            "id": 26,
+            "name": "Double-Unders, in 2 min",
+            "standards": "",
+            "level": [
+                85, 130, 175, 215
+            ],
+            "modifier": [],
+            "scheme": "reps",
+            "category": 1,
+            "gender": 2
+        },
+        {
+            "id": 27,
+            "name": "Back Squat",
+            "standards": "Hip crease below knee.",
+            "level": [
+                0.5, 1, 1.5, 2
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 2
+        },
+        {
+            "id": 28,
+            "name": "Front Squat",
+            "standards": "Hip crease below knee.",
+            "level": [
+                0.5, 0.75, 1, 1.5
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 2
+        },
+        {
+            "id": 29,
+            "name": "Overhead Squat",
+            "standards": "Hip crease below knee.",
+            "level": [
+                0.25, 0.5, 1, 1.33
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 2
+        },
+        {
+            "id": 30,
+            "name": "Deadlift",
+            "standards": "Controlled to the floor.",
+            "level": [
+               0.75, 1.5, 2, 2.5
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 2
+        },
+        {
+            "id": 31,
+            "name": "Shoulder Press",
+            "standards": "",
+            "level": [
+                0.25, 0.5, 0.75, 1
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 0
+        },
+        {
+            "id": 32,
+            "name": "Shoulder Press",
+            "standards": "",
+            "level": [
+                0.25, 0.5, 0.66, 0.75
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 1
+        },
+        {
+            "id": 33,
+            "name": "Bench Press",
+            "standards": "Bar must make contact with the chest.",
+            "level": [
+                0.75, 1, 1.25, 1.5
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 0
+        },
+        {
+            "id": 34,
+            "name": "Bench Press",
+            "standards": "Bar must make contact with the chest.",
+            "level": [
+                0.33, 0.66, 0.75, 1
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 1
+        },
+        {
+            "id": 35,
+            "name": "Clean",
+            "standards": "Full squat.",
+            "level": [
+                0, 0.66, 1, 1.25
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 2
+        },
+        {
+            "id": 36,
+            "name": "Snatch",
+            "standards": "Full squat.",
+            "level": [
+                0, 0.33, 0.75, 1.125
+            ],
+            "modifier": [],
+            "scheme": "bodyweight",
+            "category": 2,
+            "gender": 2
+        }      
     ]
 }
