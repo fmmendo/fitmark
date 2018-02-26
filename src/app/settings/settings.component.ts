@@ -12,7 +12,6 @@ export class SettingsComponent implements OnInit {
   private Gender = Gender;
   private GenderValues = Object.values(Gender).filter(e => typeof (e) == "number");
   userData: UserData;
-  //genderList: any[] = [];
 
   constructor(private benchmarkService: BenchmarkService, private location: Location) { }
 

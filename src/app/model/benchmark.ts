@@ -9,9 +9,5 @@ export class Benchmark {
     modifier: string[];
     scheme: string;
     category: Category;
-    gender: Gender
-
-    score: number;
-    selectedMod: number;
-    currentLevel: number;
+    gender: Gender;
 }

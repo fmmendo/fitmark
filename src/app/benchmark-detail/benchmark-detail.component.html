@@ -1,14 +1,9 @@
 <div *ngIf="benchmark">
-  <h2>{{ benchmark.name | uppercase }} Details</h2>
-  <div>
-    <span>id: </span>{{benchmark.id}}</div>
-  <div>
-    <span>name: </span>{{benchmark.name}}</div>
-  <div>
-    <span>standards: </span>{{benchmark.standards}}</div>
+  <h2>{{ benchmark.name | uppercase }}</h2>
+  <div>{{benchmark.standards}}</div>
   <div>
     <label>score:
-      <input [(ngModel)]="benchmark.score" placeholder="0">
+      <input [(ngModel)]="entry.score" placeholder="0">
     </label>
     <div>
       <span></span>{{benchmark.scheme}}</div>

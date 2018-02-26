@@ -9,6 +9,7 @@ import { AsyncLocalStorage } from 'angular-async-local-storage';
 import { Benchmark } from './model/benchmark'
 import { BenchmarkEntry } from './model/benchmarkEntry';
 import { UserData } from './model/userData';
+import { TrainingLevel } from './model/trainingLevel';
 
 const USER_ENTRIES = 'fitmark-user-entries';
 const USER_DATA = 'fitmark-user-data';
@@ -19,36 +20,43 @@ export class BenchmarkService {
   //private benchmarksUrl = 'api/benchmarks'; // url to web api
   private benchmarks: Benchmark[];
   private entries: BenchmarkEntry[];
-  //private userData: UserData;
+  private userData: UserData;
   private version: number;
 
   constructor(private http: Http, private storage: AsyncLocalStorage) {
     this.getJSONAsync("assets/data/spec.json").then(data => this.SetData(data));
-    this.getUserEntries();
+    this.loadUserEntries();
+    this.loadUserData();
   }
 
   getBenchmarks(): Observable<Benchmark[]> {
-    console.info(JSON.stringify(this.benchmarks));
-    return of(this.benchmarks)
+    return of(this.benchmarks);
   }
 
   getBenchmark(id: number): Observable<Benchmark> {
-    return of(this.benchmarks.find(b => b.id === id))
+    return of(this.benchmarks.find(b => b.id === id));
   }
 
-  getEntries(): Observable<BenchmarkEntry[]>
-  {
+  getEntries(): Observable<BenchmarkEntry[]> {
     return of(this.entries);
   }
 
-  updateBenchmark(benchmark: Benchmark, score: number, modifier: number) {
+  getEntry(id: number) : Observable<BenchmarkEntry> {
+    return of(this.entries.find(be => be.benchmarkId === id));
+  }
+
+  getUserData() : Observable<UserData> {
+    return of(this.userData);
+  }
+
+  updateBenchmark(benchmarkId: number, score: number, modifier: number, level: TrainingLevel) {
     if (this.entries === null) {
       this.entries = [];
     }
 
-    let entry: BenchmarkEntry = new BenchmarkEntry(benchmark.id, modifier, score);
+    let entry: BenchmarkEntry = new BenchmarkEntry(benchmarkId, modifier, score, level);
 
-    let old = this.entries.find(i => i.benchmarkId === benchmark.id);
+    let old = this.entries.find(i => i.benchmarkId === benchmarkId);
     if (old != null) {
       let index = this.entries.indexOf(old);
       this.entries[index] = entry;
@@ -81,51 +89,21 @@ export class BenchmarkService {
     })
   }
 
-  public getUserData() : Observable<UserData> {
-    return this.storage.getItem(USER_DATA);
-    // let data;
-
-    // this.storage.getItem(USER_DATA).subscribe((d) => {      
-    //   // done
-    //   if (d != null) {
-    //     data = d;
-    //     console.log("loaded user data");
-        
-    //   }
-    //   else {
-    //     data = new UserData();
-    //     console.log("no user data to load");
-    //   }
-    //   return of(data);
-    // }, () => {
-    //   // error
-    //   console.log("loading user data is broken");     
-    // })
-    // return of(data);
-  }
-
-  private getUserEntries() {
-    this.storage.getItem(USER_ENTRIES).subscribe((d) => {
+  public loadUserData() {
+    this.storage.getItem(USER_DATA).subscribe((d) => {
       // done
       if (d != null) {
-        this.entries = d;
-        console.log("loaded saved entries");
+        this.userData = d;
+        console.log("loaded user data");
 
-        this.entries.forEach(e => {
-          let bench = this.benchmarks.find(b => b.id === e.benchmarkId);
-          let index = this.benchmarks.indexOf(bench);
-
-          this.benchmarks[index].score = e.score;
-          this.benchmarks[index].selectedMod = e.modifier;
-        })
       }
       else {
-        this.entries = [];
-        console.log("nothing to load");
+        this.userData = new UserData();
+        console.log("no user data to load");
       }
     }, () => {
       // error
-      console.log("loading entries is broken");
+      console.log("loading user data is broken");
     })
   }
 
@@ -136,6 +114,31 @@ export class BenchmarkService {
     }, () => {
       // error
       console.log("saving user data is broken");
+    })
+  }
+
+  private loadUserEntries() {
+    this.storage.getItem(USER_ENTRIES).subscribe((d) => {
+      // done
+      if (d != null) {
+        this.entries = d;
+        console.log("loaded saved entries");
+
+        // this.entries.forEach(e => {
+        //   let bench = this.benchmarks.find(b => b.id === e.benchmarkId);
+        //   let index = this.benchmarks.indexOf(bench);
+
+        //   this.benchmarks[index].score = e.score;
+        //   this.benchmarks[index].selectedMod = e.modifier;
+        // })
+      }
+      else {
+        this.entries = [];
+        console.log("nothing to load");
+      }
+    }, () => {
+      // error
+      console.log("loading entries is broken");
     })
   }
 

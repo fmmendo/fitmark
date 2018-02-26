@@ -106,13 +106,16 @@
             "name": "Sit-ups, in 2 minutes",
             "standards": "Abmat, butterfly, no anchor.",
             "level": [
-                45,60,75,90
+                45,
+                60,
+                75,
+                90
             ],
             "modifier": [
                 "",
                 "",
-                "pistols",
-                "pistols"
+                "",
+                ""
             ],
             "scheme": "reps",
             "category": 0,
@@ -158,9 +161,17 @@
             "name": "Rope Climb, consecutive",
             "standards": "Hand must touch chain/pin.",
             "level": [
-                2,1,1,2
+                2,
+                1,
+                1,
+                2
             ],
-            "modifier": ["","no feet","seated","L-sit"],
+            "modifier": [
+                "",
+                "no feet",
+                "seated",
+                "L-sit"
+            ],
             "scheme": "reps",
             "category": 0,
             "gender": 0
@@ -170,9 +181,17 @@
             "name": "Rope Climb, consecutive",
             "standards": "Hand must touch chain/pin.",
             "level": [
-                1,3,1,1
+                1,
+                3,
+                1,
+                1
             ],
-            "modifier": ["","","no feet","seated"],
+            "modifier": [
+                "",
+                "",
+                "no feet",
+                "seated"
+            ],
             "scheme": "reps",
             "category": 0,
             "gender": 1
@@ -187,7 +206,12 @@
                 50,
                 105
             ],
-            "modifier": ["tucked", "one leg", "both legs", "both legs"],
+            "modifier": [
+                "tucked",
+                "one leg",
+                "both legs",
+                "both legs"
+            ],
             "scheme": "seconds",
             "category": 0,
             "gender": 2
@@ -232,7 +256,12 @@
                 15,
                 45
             ],
-            "modifier": ["wall", "wall", "freestanding", "freestanding"],
+            "modifier": [
+                "wall",
+                "wall",
+                "freestanding",
+                "freestanding"
+            ],
             "scheme": "reps",
             "category": 0,
             "gender": 0
@@ -247,7 +276,12 @@
                 7,
                 15
             ],
-            "modifier": ["", "", "", "freestanding"],
+            "modifier": [
+                "",
+                "",
+                "",
+                "freestanding"
+            ],
             "scheme": "reps",
             "category": 0,
             "gender": 0
@@ -262,7 +296,12 @@
                 3,
                 5
             ],
-            "modifier": ["", "", "", "freestanding"],
+            "modifier": [
+                "",
+                "",
+                "",
+                "freestanding"
+            ],
             "scheme": "reps",
             "category": 0,
             "gender": 1
@@ -392,7 +431,10 @@
             "name": "Double-Unders, in 2 min",
             "standards": "",
             "level": [
-                85, 130, 175, 215
+                85,
+                130,
+                175,
+                215
             ],
             "modifier": [],
             "scheme": "reps",
@@ -404,7 +446,10 @@
             "name": "Back Squat",
             "standards": "Hip crease below knee.",
             "level": [
-                0.5, 1, 1.5, 2
+                0.5,
+                1,
+                1.5,
+                2
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -416,7 +461,10 @@
             "name": "Front Squat",
             "standards": "Hip crease below knee.",
             "level": [
-                0.5, 0.75, 1, 1.5
+                0.5,
+                0.75,
+                1,
+                1.5
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -428,7 +476,10 @@
             "name": "Overhead Squat",
             "standards": "Hip crease below knee.",
             "level": [
-                0.25, 0.5, 1, 1.33
+                0.25,
+                0.5,
+                1,
+                1.33
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -440,7 +491,10 @@
             "name": "Deadlift",
             "standards": "Controlled to the floor.",
             "level": [
-               0.75, 1.5, 2, 2.5
+                0.75,
+                1.5,
+                2,
+                2.5
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -452,7 +506,10 @@
             "name": "Shoulder Press",
             "standards": "",
             "level": [
-                0.25, 0.5, 0.75, 1
+                0.25,
+                0.5,
+                0.75,
+                1
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -464,7 +521,10 @@
             "name": "Shoulder Press",
             "standards": "",
             "level": [
-                0.25, 0.5, 0.66, 0.75
+                0.25,
+                0.5,
+                0.66,
+                0.75
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -476,7 +536,10 @@
             "name": "Bench Press",
             "standards": "Bar must make contact with the chest.",
             "level": [
-                0.75, 1, 1.25, 1.5
+                0.75,
+                1,
+                1.25,
+                1.5
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -488,7 +551,10 @@
             "name": "Bench Press",
             "standards": "Bar must make contact with the chest.",
             "level": [
-                0.33, 0.66, 0.75, 1
+                0.33,
+                0.66,
+                0.75,
+                1
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -500,7 +566,10 @@
             "name": "Clean",
             "standards": "Full squat.",
             "level": [
-                0, 0.66, 1, 1.25
+                0,
+                0.66,
+                1,
+                1.25
             ],
             "modifier": [],
             "scheme": "bodyweight",
@@ -512,12 +581,15 @@
             "name": "Snatch",
             "standards": "Full squat.",
             "level": [
-                0, 0.33, 0.75, 1.125
+                0,
+                0.33,
+                0.75,
+                1.125
             ],
             "modifier": [],
             "scheme": "bodyweight",
             "category": 2,
             "gender": 2
-        }      
+        }
     ]
 }

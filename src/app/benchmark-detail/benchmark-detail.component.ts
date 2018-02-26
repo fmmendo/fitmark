@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { Benchmark } from '../model/benchmark';
 import { BenchmarkService } from '../benchmark.service';
+import { BenchmarkEntry } from '../model/benchmarkEntry';
 
 @Component({
   selector: 'app-benchmark-detail',
@@ -13,6 +14,7 @@ import { BenchmarkService } from '../benchmark.service';
 export class BenchmarkDetailComponent implements OnInit {
 
   @Input() benchmark: Benchmark;
+  entry: BenchmarkEntry;
 
   constructor(private route: ActivatedRoute, private benchmarkService: BenchmarkService, private location: Location) { }
 
@@ -22,11 +24,14 @@ export class BenchmarkDetailComponent implements OnInit {
 
   getBenchmark(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+
     this.benchmarkService.getBenchmark(id).subscribe(b => this.benchmark = b);
+    this.benchmarkService.getEntry(id).subscribe(be => this.entry = be);
   }
 
   save(): void {
-    this.benchmarkService.updateBenchmark(this.benchmark, this.benchmark.score, this.benchmark.selectedMod);
+    this.benchmarkService.updateBenchmark(this.benchmark.id, this.entry.score, this.entry.modifier, this.entry.level);
+
     this.goBack();
   }
 

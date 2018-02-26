@@ -4,6 +4,12 @@ import { Benchmark } from '../model/benchmark'
 import { BenchmarkService } from '../benchmark.service'
 import { BenchmarkEntry } from '../model/benchmarkEntry';
 import { UserData } from '../model/userData';
+import { Category } from '../model/Category';
+import { BenchmarkView } from '../model/benchmarkView';
+import { Observable } from 'rxjs/Observable';
+
+
+import { zip } from 'rxjs/observable/zip'
 
 @Component({
   selector: 'app-benchmarks',
@@ -12,41 +18,44 @@ import { UserData } from '../model/userData';
 })
 export class BenchmarksComponent implements OnInit {
 
+  private Category = Category;
+
   userData: UserData;
-  benchmarks: Benchmark[];
-  //entries: BenchmarkEntry[];
+  benchmarks: BenchmarkView[];
 
   constructor(private benchmarkService: BenchmarkService) { }
 
   ngOnInit() {
-    this.getUserData();
+    //this.getUserData();
     this.getBenchmarks();
-    //this.getBenchmarkEntries();
   }
 
   getUserData(): void {
-    this.benchmarkService.getUserData().subscribe((d) => {
-      // done
-      if (d != null) {
-        this.userData = d;
-        console.log("loaded user data");
-
-      }
-      else {
-        this.userData = new UserData();
-        console.log("no user data to load");
-      }
-    }, () => {
-      // error
-      console.log("loading user data is broken");
-    })
+    this.benchmarkService.getUserData().subscribe(ud => this.userData = ud);
   }
 
   getBenchmarks(): void {
-    this.benchmarkService.getBenchmarks().subscribe(b => this.benchmarks = b);
+    let benchmarks: Benchmark[];
+    let entries: BenchmarkEntry[];
+
+    zip(
+      
+    this.benchmarkService.getUserData(),
+      this.benchmarkService.getBenchmarks(),
+      this.benchmarkService.getEntries()
+    ).subscribe(([u, b, e]) => {
+      benchmarks = b;
+      entries = e;
+
+      this.userData = u;
+      this.benchmarks = new Array<BenchmarkView>();
+      benchmarks.forEach(bench => {
+        let entry = entries.find(b => b.benchmarkId === bench.id);
+        this.benchmarks.push(new BenchmarkView(bench, entry))
+
+      })
+    });
+
   }
 
-  // getBenchmarkEntries(): void {
-  //   this.benchmarkService.getEntries().subscribe(e => this.entries = e);
-  // }
 }

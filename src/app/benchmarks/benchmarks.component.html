@@ -1,10 +1,12 @@
 <h2>Benchmarks</h2>
-<ul class="benchmarks" >
+<ul class="benchmarks">
   <div *ngFor="let benchmark of benchmarks">
-  <li  *ngIf="benchmark.gender === userData.gender || benchmark.gender === 2">    
-    <a routerLink="/detail/{{benchmark.id}}">
-      <span class="badge">{{benchmark.id}}</span> {{benchmark.name}} score: {{benchmark.score}}
-    </a>
-  </li>
-</div>
+    <!-- <div *ngIf=""> -->
+      <li *ngIf="(benchmark && userData && (benchmark.gender === userData.gender || benchmark.gender === 2)) || (benchmark && (benchmark.gender === 0 || benchmark.gender === 2))">
+        <a routerLink="/detail/{{benchmark.id}}">
+          <span class="badge">{{Category[benchmark.category]}}</span> {{benchmark.name}} {{benchmark.score}}
+        </a>
+      </li>
+    <!-- </div> -->
+  </div>
 </ul>
