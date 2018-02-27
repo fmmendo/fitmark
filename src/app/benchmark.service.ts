@@ -123,14 +123,6 @@ export class BenchmarkService {
       if (d != null) {
         this.entries = d;
         console.log("loaded saved entries");
-
-        // this.entries.forEach(e => {
-        //   let bench = this.benchmarks.find(b => b.id === e.benchmarkId);
-        //   let index = this.benchmarks.indexOf(bench);
-
-        //   this.benchmarks[index].score = e.score;
-        //   this.benchmarks[index].selectedMod = e.modifier;
-        // })
       }
       else {
         this.entries = [];

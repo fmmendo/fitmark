@@ -26,21 +26,15 @@ export class BenchmarksComponent implements OnInit {
   constructor(private benchmarkService: BenchmarkService) { }
 
   ngOnInit() {
-    //this.getUserData();
-    this.getBenchmarks();
+    this.load();
   }
 
-  getUserData(): void {
-    this.benchmarkService.getUserData().subscribe(ud => this.userData = ud);
-  }
-
-  getBenchmarks(): void {
+  load(): void {
     let benchmarks: Benchmark[];
     let entries: BenchmarkEntry[];
 
     zip(
-      
-    this.benchmarkService.getUserData(),
+      this.benchmarkService.getUserData(),
       this.benchmarkService.getBenchmarks(),
       this.benchmarkService.getEntries()
     ).subscribe(([u, b, e]) => {
@@ -52,7 +46,6 @@ export class BenchmarksComponent implements OnInit {
       benchmarks.forEach(bench => {
         let entry = entries.find(b => b.benchmarkId === bench.id);
         this.benchmarks.push(new BenchmarkView(bench, entry))
-
       })
     });
 
